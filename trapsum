@@ -1,0 +1,25 @@
+#include<iostream>
+#include <math.h>
+using namespace std;
+float a =1;
+float b=2;
+float n;
+float dx=0;
+float totalArea=0;
+double func(double x) {
+    float y = exp(pow(x, 2) * -1);
+    return y;
+}
+double trapez (double x){
+    float area = (dx)*((func(x)+func(x+dx))/2);
+    return area;
+}
+int main() {
+    cout << "What is your n value? ";
+    cin >> n;
+    dx = (b - a)/ n;
+    for(int runCount=0;runCount<n;runCount++){
+        totalArea+=trapez(a+(dx*runCount));
+    }
+    cout << totalArea;
+}
